@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 192 192" role="img" aria-label="Gym Track">
+  <rect width="192" height="192" fill="#142e2c"/>
+  <circle cx="96" cy="96" r="54" fill="#178454"/>
+  <rect x="53" y="90" width="86" height="12" rx="6" fill="#f8faf7"/>
+  <rect x="48" y="72" width="16" height="48" rx="6" fill="#f2cb51"/>
+  <rect x="64" y="79" width="12" height="34" rx="5" fill="#f8faf7"/>
+  <rect x="128" y="72" width="16" height="48" rx="6" fill="#f2cb51"/>
+  <rect x="116" y="79" width="12" height="34" rx="5" fill="#f8faf7"/>
+</svg>
