@@ -1,7 +1,7 @@
 import { asc, eq } from "drizzle-orm"
 
 import { getDb } from "@/db"
-import { profileEntries, workouts } from "@/db/schema"
+import { workouts } from "@/db/schema"
 import { getCurrentUser } from "@/lib/dal"
 
 export const runtime = "nodejs"
@@ -21,31 +21,16 @@ export async function GET() {
     return Response.json({ error: "Unauthorized" }, { status: 401 })
   }
 
-  const database = getDb()
-  const [profiles, workoutEntries] = await Promise.all([
-    database
-      .select()
-      .from(profileEntries)
-      .where(eq(profileEntries.userId, user.id))
-      .orderBy(asc(profileEntries.recordedAt)),
-    database
-      .select()
-      .from(workouts)
-      .where(eq(workouts.userId, user.id))
-      .orderBy(asc(workouts.performedOn), asc(workouts.createdAt)),
-  ])
+  const workoutEntries = await getDb()
+    .select()
+    .from(workouts)
+    .where(eq(workouts.userId, user.id))
+    .orderBy(asc(workouts.performedOn), asc(workouts.createdAt))
 
   const headers = [
-    "record_type",
     "date",
-    "username",
-    "age",
-    "height_cm",
-    "profile_weight_kg",
-    "bmi",
-    "workout_type",
     "workout_name",
-    "workout_weight_kg",
+    "weight_kg",
     "reps",
     "sets",
     "duration_minutes",
@@ -54,55 +39,21 @@ export async function GET() {
     "distance_km",
     "average_speed_kmh",
   ]
-  const rows = [
-    ...profiles.map((profile) => ({
-      date: profile.recordedAt.toISOString().slice(0, 10),
-      values: [
-        "profile",
-        profile.recordedAt.toISOString().slice(0, 10),
-        user.username,
-        profile.age,
-        profile.heightCm,
-        profile.weightKg,
-        profile.bmi,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-      ],
-    })),
-    ...workoutEntries.map((workout) => ({
-      date: workout.performedOn,
-      values: [
-        "workout",
-        workout.performedOn,
-        user.username,
-        null,
-        null,
-        null,
-        null,
-        workout.type,
-        workout.name,
-        workout.weightKg,
-        workout.reps,
-        workout.sets,
-        workout.durationMinutes,
-        workout.steps,
-        workout.calories,
-        workout.distanceKm,
-        workout.averageSpeedKmh,
-      ],
-    })),
-  ].sort((left, right) => left.date.localeCompare(right.date))
+  const rows = workoutEntries.map((workout) => [
+    workout.performedOn,
+    workout.name,
+    workout.weightKg,
+    workout.reps,
+    workout.sets,
+    workout.durationMinutes,
+    workout.steps,
+    workout.calories,
+    workout.distanceKm,
+    workout.averageSpeedKmh,
+  ])
   const csv = [
     headers.map(csvCell).join(","),
-    ...rows.map((row) => row.values.map(csvCell).join(",")),
+    ...rows.map((row) => row.map(csvCell).join(",")),
   ].join("\r\n")
   const today = new Date().toISOString().slice(0, 10)
 

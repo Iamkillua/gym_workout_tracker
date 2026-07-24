@@ -49,7 +49,7 @@ export default async function ProgressPage({
         </div>
         <a href="/api/export" className={buttonVariants({ variant: "outline" })}>
           <DownloadIcon data-icon="inline-start" />
-          Export all data
+          Export workouts
         </a>
       </header>
 

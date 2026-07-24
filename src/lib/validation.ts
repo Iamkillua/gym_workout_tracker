@@ -32,6 +32,11 @@ export const profileSchema = z.object({
   recordedOn: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
 })
 
+export const dailyActivitySchema = z.object({
+  steps: z.coerce.number().int().nonnegative().max(200000),
+  activityCalories: z.coerce.number().int().nonnegative().max(20000),
+})
+
 const optionalNumber = <Schema extends z.ZodType<number, unknown>>(
   schema: Schema
 ) =>

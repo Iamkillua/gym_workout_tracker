@@ -1,7 +1,14 @@
 import { and, count, desc, eq, gte } from "drizzle-orm"
-import { ArrowRightIcon, DumbbellIcon, PlusIcon } from "lucide-react"
+import {
+  ArrowRightIcon,
+  CheckCircle2Icon,
+  DumbbellIcon,
+  PlusIcon,
+} from "lucide-react"
 import Link from "next/link"
 
+import { DailyActivityForm } from "@/components/daily-activity-form"
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { Badge } from "@/components/ui/badge"
 import { buttonVariants } from "@/components/ui/button"
 import {
@@ -23,7 +30,7 @@ import {
 } from "@/components/ui/empty"
 import { Separator } from "@/components/ui/separator"
 import { getDb } from "@/db"
-import { workouts } from "@/db/schema"
+import { dailyActivityEntries, workouts } from "@/db/schema"
 import { getBmiLabel } from "@/lib/bmi"
 import { requireUser } from "@/lib/dal"
 import { getProfileHistory } from "@/lib/profile"
@@ -38,12 +45,18 @@ function startOfWeekDate() {
   return date.toISOString().slice(0, 10)
 }
 
-export default async function DashboardPage() {
+export default async function DashboardPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ activityUpdated?: string; activityError?: string }>
+}) {
   const user = await requireUser()
   const profileHistory = await getProfileHistory(user.id)
   const latest = profileHistory.at(-1)!
   const database = getDb()
-  const [[weekly], recent] = await Promise.all([
+  const today = new Date().toISOString().slice(0, 10)
+  const { activityUpdated, activityError } = await searchParams
+  const [[weekly], recent, [todayActivity]] = await Promise.all([
     database
       .select({ total: count() })
       .from(workouts)
@@ -59,6 +72,16 @@ export default async function DashboardPage() {
       .where(eq(workouts.userId, user.id))
       .orderBy(desc(workouts.performedOn), desc(workouts.createdAt))
       .limit(4),
+    database
+      .select()
+      .from(dailyActivityEntries)
+      .where(
+        and(
+          eq(dailyActivityEntries.userId, user.id),
+          eq(dailyActivityEntries.recordedOn, today)
+        )
+      )
+      .limit(1),
   ])
 
   return (
@@ -86,6 +109,20 @@ export default async function DashboardPage() {
         </Link>
       </header>
 
+      {activityUpdated ? (
+        <Alert>
+          <CheckCircle2Icon />
+          <AlertTitle>Today&apos;s activity updated</AlertTitle>
+          <AlertDescription>Your latest steps and calories are saved.</AlertDescription>
+        </Alert>
+      ) : null}
+      {activityError ? (
+        <Alert variant="destructive">
+          <AlertTitle>Could not update activity</AlertTitle>
+          <AlertDescription>Enter valid steps and activity calories.</AlertDescription>
+        </Alert>
+      ) : null}
+
       <section className="grid grid-cols-2 gap-3 lg:grid-cols-4">
         <Card size="sm">
           <CardHeader>
@@ -112,6 +149,21 @@ export default async function DashboardPage() {
           </CardHeader>
         </Card>
       </section>
+
+      <Card>
+        <CardHeader>
+          <CardTitle>Today&apos;s activity</CardTitle>
+          <CardDescription>
+            Track your daily walking and activity calories.
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <DailyActivityForm
+            steps={todayActivity?.steps ?? 0}
+            activityCalories={todayActivity?.activityCalories ?? 0}
+          />
+        </CardContent>
+      </Card>
 
       <section className="grid gap-6 lg:grid-cols-[minmax(0,1.3fr)_minmax(19rem,0.7fr)]">
         <Card>

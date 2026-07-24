@@ -56,6 +56,30 @@ export const profileEntries = pgTable(
   ]
 )
 
+export const dailyActivityEntries = pgTable(
+  "daily_activity_entries",
+  {
+    id: uuid("id").defaultRandom().primaryKey(),
+    userId: uuid("user_id")
+      .notNull()
+      .references(() => users.id, { onDelete: "cascade" }),
+    recordedOn: date("recorded_on")
+      .default(sql`CURRENT_DATE`)
+      .notNull(),
+    steps: integer("steps").default(0).notNull(),
+    activityCalories: integer("activity_calories").default(0).notNull(),
+    updatedAt: timestamp("updated_at", { withTimezone: true })
+      .defaultNow()
+      .notNull(),
+  },
+  (table) => [
+    uniqueIndex("daily_activity_entries_user_date_idx").on(
+      table.userId,
+      table.recordedOn
+    ),
+  ]
+)
+
 export const workouts = pgTable(
   "workouts",
   {
@@ -93,3 +117,4 @@ export const workouts = pgTable(
 export type WorkoutType = (typeof workoutType.enumValues)[number]
 export type Workout = typeof workouts.$inferSelect
 export type ProfileEntry = typeof profileEntries.$inferSelect
+export type DailyActivityEntry = typeof dailyActivityEntries.$inferSelect
