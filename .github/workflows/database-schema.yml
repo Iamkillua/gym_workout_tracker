@@ -1,0 +1,47 @@
+name: Sync database schema
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "src/db/schema.ts"
+      - "drizzle.config.ts"
+      - "package.json"
+      - "package-lock.json"
+      - ".github/workflows/database-schema.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: production-database-schema
+  cancel-in-progress: false
+
+jobs:
+  push-schema:
+    name: Push schema
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment: production
+    permissions:
+      contents: read
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate schema
+        run: npm run typecheck
+
+      - name: Push schema to database
+        run: npm run db:push:ci
