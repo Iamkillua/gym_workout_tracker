@@ -48,72 +48,72 @@
 }
 
 :root {
-  --background: oklch(0.985 0.006 210);
-  --foreground: oklch(0.205 0.025 225);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.205 0.025 225);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.205 0.025 225);
-  --primary: oklch(0.49 0.145 155);
-  --primary-foreground: oklch(0.985 0.008 155);
-  --secondary: oklch(0.94 0.04 88);
-  --secondary-foreground: oklch(0.26 0.04 70);
-  --muted: oklch(0.955 0.009 215);
-  --muted-foreground: oklch(0.48 0.025 225);
-  --accent: oklch(0.94 0.035 215);
-  --accent-foreground: oklch(0.25 0.045 225);
-    --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.89 0.012 215);
-  --input: oklch(0.89 0.012 215);
-  --ring: oklch(0.58 0.13 155);
-  --chart-1: oklch(0.57 0.16 155);
-  --chart-2: oklch(0.64 0.18 35);
+  --background: oklch(0.965 0.012 96);
+  --foreground: oklch(0.2 0.035 248);
+  --card: oklch(0.992 0.006 96);
+  --card-foreground: oklch(0.2 0.035 248);
+  --popover: oklch(0.992 0.006 96);
+  --popover-foreground: oklch(0.2 0.035 248);
+  --primary: oklch(0.56 0.12 185);
+  --primary-foreground: oklch(0.985 0.005 190);
+  --secondary: oklch(0.91 0.034 185);
+  --secondary-foreground: oklch(0.24 0.055 200);
+  --muted: oklch(0.925 0.014 96);
+  --muted-foreground: oklch(0.43 0.03 245);
+  --accent: oklch(0.91 0.034 185);
+  --accent-foreground: oklch(0.22 0.055 202);
+  --destructive: oklch(0.61 0.19 32);
+  --border: oklch(0.81 0.025 205);
+  --input: oklch(0.78 0.025 205);
+  --ring: oklch(0.56 0.12 185);
+  --chart-1: oklch(0.56 0.12 185);
+  --chart-2: oklch(0.61 0.19 32);
   --chart-3: oklch(0.56 0.16 245);
   --chart-4: oklch(0.75 0.14 88);
   --chart-5: oklch(0.6 0.18 325);
-    --radius: 0.625rem;
-    --sidebar: oklch(0.97 0.01 215);
-    --sidebar-foreground: oklch(0.205 0.025 225);
-    --sidebar-primary: oklch(0.49 0.145 155);
-    --sidebar-primary-foreground: oklch(0.985 0.008 155);
-    --sidebar-accent: oklch(0.925 0.025 210);
-    --sidebar-accent-foreground: oklch(0.24 0.035 225);
-    --sidebar-border: oklch(0.88 0.015 215);
-    --sidebar-ring: oklch(0.58 0.13 155);
+  --radius: 0.35rem;
+  --sidebar: oklch(0.19 0.04 248);
+  --sidebar-foreground: oklch(0.92 0.015 200);
+  --sidebar-primary: oklch(0.65 0.13 185);
+  --sidebar-primary-foreground: oklch(0.17 0.035 248);
+  --sidebar-accent: oklch(0.28 0.05 230);
+  --sidebar-accent-foreground: oklch(0.97 0.01 190);
+  --sidebar-border: oklch(0.34 0.045 230);
+  --sidebar-ring: oklch(0.65 0.13 185);
 }
 
 .dark {
-    --background: oklch(0.16 0.018 225);
-    --foreground: oklch(0.95 0.008 210);
-    --card: oklch(0.205 0.02 225);
-    --card-foreground: oklch(0.95 0.008 210);
-    --popover: oklch(0.205 0.02 225);
-    --popover-foreground: oklch(0.95 0.008 210);
-    --primary: oklch(0.72 0.15 155);
-    --primary-foreground: oklch(0.17 0.035 155);
-    --secondary: oklch(0.3 0.05 82);
-    --secondary-foreground: oklch(0.94 0.035 88);
-    --muted: oklch(0.255 0.02 225);
-    --muted-foreground: oklch(0.7 0.025 215);
-    --accent: oklch(0.285 0.04 220);
-    --accent-foreground: oklch(0.95 0.008 210);
-    --destructive: oklch(0.704 0.191 22.216);
+    --background: oklch(0.17 0.035 248);
+    --foreground: oklch(0.94 0.012 96);
+    --card: oklch(0.205 0.038 244);
+    --card-foreground: oklch(0.94 0.012 96);
+    --popover: oklch(0.205 0.038 244);
+    --popover-foreground: oklch(0.94 0.012 96);
+    --primary: oklch(0.69 0.13 185);
+    --primary-foreground: oklch(0.17 0.035 248);
+    --secondary: oklch(0.29 0.045 205);
+    --secondary-foreground: oklch(0.92 0.02 190);
+    --muted: oklch(0.255 0.03 245);
+    --muted-foreground: oklch(0.72 0.025 210);
+    --accent: oklch(0.29 0.05 210);
+    --accent-foreground: oklch(0.95 0.01 190);
+    --destructive: oklch(0.7 0.17 32);
     --border: oklch(1 0 0 / 10%);
     --input: oklch(1 0 0 / 15%);
-    --ring: oklch(0.67 0.14 155);
-    --chart-1: oklch(0.7 0.16 155);
-    --chart-2: oklch(0.72 0.17 38);
+    --ring: oklch(0.69 0.13 185);
+    --chart-1: oklch(0.69 0.13 185);
+    --chart-2: oklch(0.7 0.17 32);
     --chart-3: oklch(0.69 0.14 245);
     --chart-4: oklch(0.79 0.14 88);
     --chart-5: oklch(0.72 0.16 325);
-    --sidebar: oklch(0.185 0.02 225);
-    --sidebar-foreground: oklch(0.95 0.008 210);
-    --sidebar-primary: oklch(0.72 0.15 155);
-    --sidebar-primary-foreground: oklch(0.17 0.035 155);
-    --sidebar-accent: oklch(0.26 0.035 220);
-    --sidebar-accent-foreground: oklch(0.95 0.008 210);
-    --sidebar-border: oklch(1 0 0 / 10%);
-    --sidebar-ring: oklch(0.556 0 0);
+    --sidebar: oklch(0.135 0.03 248);
+    --sidebar-foreground: oklch(0.94 0.012 96);
+    --sidebar-primary: oklch(0.69 0.13 185);
+    --sidebar-primary-foreground: oklch(0.15 0.03 248);
+    --sidebar-accent: oklch(0.24 0.04 230);
+    --sidebar-accent-foreground: oklch(0.96 0.01 190);
+    --sidebar-border: oklch(0.3 0.035 230);
+    --sidebar-ring: oklch(0.69 0.13 185);
 }
 
 @layer base {
@@ -122,12 +122,6 @@
     }
   body {
     @apply relative bg-background text-foreground;
-    background-image: linear-gradient(
-      to bottom,
-      color-mix(in oklab, var(--border) 24%, transparent) 1px,
-      transparent 1px
-    );
-    background-size: 100% 40px;
     }
   html {
     @apply font-sans;
@@ -135,4 +129,408 @@
   ::selection {
     @apply bg-primary text-primary-foreground;
     }
+}
+
+@layer components {
+  .atlas-page {
+    @apply mx-auto flex w-full max-w-[82rem] flex-col gap-5;
+  }
+
+  .atlas-page-header {
+    @apply flex max-w-3xl flex-col items-start gap-2 md:gap-4;
+  }
+
+  .atlas-page-header h1 {
+    @apply max-w-2xl text-3xl leading-[0.98] font-semibold tracking-[-0.035em] text-balance md:text-6xl;
+  }
+
+  .atlas-page-header p {
+    @apply mt-2 hidden max-w-[65ch] text-base leading-relaxed text-muted-foreground sm:block md:mt-3 md:text-lg;
+  }
+
+  .atlas-form {
+    @apply grid items-start gap-4 lg:grid-cols-[minmax(19rem,0.78fr)_minmax(0,1.22fr)] lg:gap-5;
+  }
+
+  .atlas-stage {
+    @apply relative overflow-hidden rounded-[calc(var(--radius)*2)] bg-[#132a3e] p-3 text-[#f4f3ec] ring-1 ring-[#31526a] sm:p-4 md:p-6 lg:sticky lg:top-20;
+  }
+
+  .atlas-stage::after {
+    content: "GYM TRACK / TRAINING PLATE";
+    @apply pointer-events-none absolute right-3 bottom-2 text-[0.65rem] font-semibold tracking-[0.16em] text-[#7ce2d5]/45;
+  }
+
+  .atlas-stage-heading {
+    @apply mb-4 flex items-start gap-3 md:mb-6;
+  }
+
+  .atlas-stage-heading > span {
+    @apply mt-1 inline-flex h-7 min-w-8 items-center justify-center border border-current px-1 text-xs font-semibold;
+  }
+
+  .atlas-stage-heading h2 {
+    @apply text-lg leading-tight font-semibold tracking-[-0.02em] text-balance md:text-2xl;
+  }
+
+  .atlas-stage-heading p {
+    @apply mt-1 max-w-[60ch] text-xs leading-relaxed opacity-75 sm:text-sm;
+  }
+
+  .atlas-category {
+    @apply mb-4 grid min-w-0 grid-cols-2 gap-2 md:mb-6 lg:grid-cols-1 xl:grid-cols-2;
+    min-inline-size: 0;
+  }
+
+  .atlas-category-option {
+    @apply flex min-h-14 items-center gap-2 border border-[#8aa7b7]/45 bg-[#1b3850] px-2.5 text-left outline-none transition-[background-color,border-color,box-shadow] hover:border-[#7ce2d5] focus-visible:ring-3 focus-visible:ring-[#7ce2d5]/60 aria-pressed:border-[#7ce2d5] aria-pressed:bg-[#7ce2d5] aria-pressed:text-[#10283b] sm:min-h-16 sm:gap-3 sm:px-3;
+  }
+
+  .atlas-category-option > svg:first-child {
+    @apply size-5;
+  }
+
+  .atlas-category-option span {
+    @apply flex flex-col;
+  }
+
+  .atlas-category-option small {
+    @apply mt-0.5 hidden text-xs opacity-70 sm:block;
+  }
+
+  .atlas-zones legend {
+    @apply text-base font-semibold;
+  }
+
+  .atlas-zones {
+    min-inline-size: 0;
+  }
+
+  .atlas-zones > p {
+    @apply mt-1 hidden text-sm text-[#c2d4dc] sm:block;
+  }
+
+  .atlas-zone-plate {
+    @apply relative mt-3 grid grid-cols-2 gap-2 rounded-sm border border-[#8aa7b7]/45 bg-[#0e2131]/70 p-2.5 sm:mt-4 sm:gap-3 sm:p-3;
+  }
+
+  .atlas-zone-plate::before {
+    content: "";
+    @apply pointer-events-none absolute top-3 bottom-[4.25rem] left-1/2 border-l border-dashed border-[#7ce2d5]/25;
+  }
+
+  .atlas-zone-view {
+    @apply grid grid-cols-[1.7rem_1fr] gap-2;
+  }
+
+  .atlas-zone-view-label {
+    @apply flex items-center justify-center text-[0.6rem] font-semibold tracking-[0.2em] text-[#9bb4c1] [writing-mode:vertical-rl];
+  }
+
+  .atlas-zone {
+    @apply flex min-h-12 items-center justify-between border border-[#67879a] bg-[#18344a] px-3 text-xs font-semibold uppercase tracking-[0.08em] outline-none transition-[background-color,border-color,color,clip-path] hover:border-[#7ce2d5] focus-visible:ring-3 focus-visible:ring-[#7ce2d5]/60 aria-pressed:border-[#7ce2d5] aria-pressed:bg-[#7ce2d5] aria-pressed:text-[#10283b];
+    clip-path: polygon(4% 0, 96% 0, 100% 50%, 96% 100%, 4% 100%, 0 50%);
+  }
+
+  .atlas-legs-zone {
+    @apply col-span-2 mx-auto mt-1 w-[calc(50%_-_0.4rem)];
+  }
+
+  .atlas-zone svg {
+    @apply size-4;
+  }
+
+  .atlas-cardio-route {
+    @apply flex min-h-28 items-start gap-4 border border-[#7ce2d5]/60 bg-[#183f50] p-4;
+  }
+
+  .atlas-cardio-route > svg {
+    @apply mt-1 size-6 text-[#7ce2d5];
+  }
+
+  .atlas-cardio-route p {
+    @apply mt-1 text-sm leading-relaxed text-[#c8d9df];
+  }
+
+  .atlas-plan {
+    @apply min-w-0 rounded-[calc(var(--radius)*2)] bg-card p-4 ring-1 ring-foreground/15 md:p-6;
+    box-shadow: 0 12px 30px -22px color-mix(in oklab, var(--foreground) 45%, transparent);
+  }
+
+  .atlas-plan-enter {
+    animation: atlas-register 420ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .atlas-group-heading {
+    @apply mb-3 flex flex-wrap items-end justify-between gap-3 border-b border-border pb-3;
+  }
+
+  .atlas-group-heading span {
+    @apply text-[0.65rem] font-semibold tracking-[0.16em] text-primary;
+  }
+
+  .atlas-group-heading h3 {
+    @apply text-2xl font-semibold tracking-[-0.025em];
+  }
+
+  .atlas-group-reveal {
+    animation: atlas-register 420ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .atlas-exercise-stack {
+    @apply flex flex-col divide-y divide-border border-y border-border;
+  }
+
+  .atlas-exercise {
+    @apply relative grid grid-cols-[3rem_minmax(0,1fr)] gap-x-3 gap-y-3 py-5 transition-[background-color] sm:grid-cols-[3rem_minmax(0,1fr)_auto] sm:px-2;
+  }
+
+  .atlas-exercise.is-complete {
+    @apply bg-primary/10;
+    box-shadow: inset 3px 0 0 var(--primary);
+  }
+
+  .atlas-exercise:not(.is-complete) {
+    @apply bg-muted/20;
+  }
+
+  .atlas-check {
+    @apply row-span-2 flex size-12 cursor-pointer items-center justify-center self-start;
+  }
+
+  .atlas-check input {
+    @apply sr-only;
+  }
+
+  .atlas-check > span[aria-hidden] {
+    @apply flex size-8 items-center justify-center border-2 border-input bg-background transition-colors;
+  }
+
+  .atlas-check input:focus-visible + span {
+    @apply ring-3 ring-ring/50;
+  }
+
+  .atlas-check input:checked + span {
+    @apply border-primary bg-primary text-primary-foreground;
+  }
+
+  .atlas-check svg {
+    @apply size-5;
+  }
+
+  .atlas-exercise-body {
+    @apply min-w-0;
+  }
+
+  .atlas-exercise-identity {
+    @apply grid gap-3 sm:grid-cols-[minmax(0,1fr)_10rem];
+  }
+
+  .atlas-exercise-identity label,
+  .atlas-metric,
+  .atlas-date {
+    @apply flex min-w-0 flex-col gap-1.5 text-xs font-semibold text-muted-foreground;
+  }
+
+  .atlas-select {
+    @apply h-11 w-full border border-input bg-background px-3 text-sm text-foreground outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50;
+  }
+
+  .atlas-metrics {
+    @apply mt-3 grid grid-cols-1 gap-3 min-[390px]:grid-cols-2 sm:grid-cols-3;
+  }
+
+  .atlas-remove {
+    @apply col-start-2 justify-self-start text-muted-foreground sm:col-start-3 sm:row-start-1;
+  }
+
+  .atlas-type-note {
+    @apply col-start-2 text-[0.65rem] font-semibold tracking-[0.12em] text-muted-foreground uppercase sm:col-start-3 sm:row-start-2 sm:self-end sm:justify-self-end;
+  }
+
+  .atlas-empty {
+    @apply flex min-h-40 flex-col items-start justify-center gap-3 border border-dashed border-border bg-muted/45 p-5 sm:flex-row sm:items-center;
+  }
+
+  .atlas-empty > svg {
+    @apply size-6 text-primary;
+  }
+
+  .atlas-empty strong {
+    @apply font-semibold;
+  }
+
+  .atlas-empty p {
+    @apply mt-1 max-w-[55ch] text-sm leading-relaxed text-muted-foreground;
+  }
+
+  .atlas-empty.is-inline > button {
+    @apply sm:ml-auto;
+  }
+
+  .atlas-save-dock {
+    @apply sticky bottom-[calc(4rem+env(safe-area-inset-bottom))] z-10 col-span-full grid grid-cols-[minmax(8rem,0.72fr)_minmax(0,1.28fr)] items-end gap-3 border border-border bg-card p-3 shadow-[0_-8px_24px_-18px_color-mix(in_oklab,var(--foreground)_55%,transparent)] md:bottom-4 md:grid-cols-[minmax(12rem,0.6fr)_auto_auto] md:p-4;
+  }
+
+  .atlas-save-summary {
+    @apply hidden items-baseline gap-2 text-sm md:flex;
+  }
+
+  .atlas-save-summary strong {
+    @apply text-2xl text-primary;
+  }
+
+  .atlas-dashboard-lead {
+    @apply grid overflow-hidden border border-[#31526a] bg-[#132a3e] text-[#f4f3ec] lg:grid-cols-[minmax(0,1.15fr)_minmax(20rem,0.85fr)];
+    box-shadow: 0 18px 42px -30px rgb(7 24 39 / 0.8);
+  }
+
+  .atlas-dashboard-copy {
+    @apply flex min-h-[22rem] flex-col items-start justify-center p-6 md:p-10;
+  }
+
+  .atlas-dashboard-copy > p {
+    @apply text-sm font-semibold text-[#7ce2d5];
+  }
+
+  .atlas-dashboard-copy h1 {
+    @apply mt-3 max-w-3xl text-4xl leading-[0.98] font-semibold tracking-[-0.035em] text-balance md:text-6xl;
+  }
+
+  .atlas-dashboard-status {
+    @apply mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm text-[#c6d6df];
+  }
+
+  .atlas-dashboard-status span {
+    @apply border-b border-[#547085] pb-1;
+  }
+
+  .atlas-repeat-panel {
+    @apply border-t border-[#547085] bg-[#1b3850] p-5 lg:border-t-0 lg:border-l md:p-7;
+  }
+
+  .atlas-repeat-panel > div:first-child > span {
+    @apply text-[0.65rem] font-semibold tracking-[0.16em] text-[#7ce2d5];
+  }
+
+  .atlas-repeat-panel h2 {
+    @apply mt-1 mb-4 text-xl font-semibold;
+  }
+
+  .atlas-repeat-row {
+    @apply flex min-h-20 items-center justify-between gap-3 py-3;
+  }
+
+  .atlas-repeat-row p {
+    @apply font-semibold;
+  }
+
+  .atlas-repeat-row span {
+    @apply mt-1 block text-xs text-[#c6d6df];
+  }
+
+  .atlas-measurement-strip {
+    @apply border border-border bg-card p-5;
+  }
+
+  .atlas-measurement-strip h2 {
+    @apply text-xl font-semibold;
+  }
+
+  .atlas-measurement-strip > div > p {
+    @apply mt-1 text-sm text-muted-foreground;
+  }
+
+  .atlas-measurement-strip dl {
+    @apply my-5;
+  }
+
+  .atlas-measurement-strip dl > div {
+    @apply flex items-baseline justify-between gap-4 py-3;
+  }
+
+  .atlas-measurement-strip dt {
+    @apply text-sm text-muted-foreground;
+  }
+
+  .atlas-measurement-strip dd {
+    @apply text-lg font-semibold;
+  }
+
+  .atlas-log-page {
+    @apply flex flex-col gap-6;
+  }
+
+  .atlas-log-header {
+    @apply flex flex-col items-start justify-between gap-4 border-b border-border pb-5 sm:flex-row sm:items-end;
+  }
+
+  .atlas-log-header h1 {
+    @apply text-4xl font-semibold tracking-[-0.035em] md:text-5xl;
+  }
+
+  .atlas-log-header p {
+    @apply mt-2 text-muted-foreground;
+  }
+
+  .atlas-log-stack {
+    @apply flex flex-col gap-5;
+  }
+
+  .atlas-log-session {
+    @apply border border-border bg-card;
+  }
+
+  .atlas-log-session > header {
+    @apply flex flex-wrap items-center justify-between gap-3 bg-[#132a3e] p-4 text-[#f4f3ec] md:px-5;
+  }
+
+  .atlas-log-session time {
+    @apply text-lg font-semibold;
+  }
+
+  .atlas-log-labels {
+    @apply mt-2 flex flex-wrap gap-2;
+  }
+
+  .atlas-log-exercises {
+    @apply divide-y divide-border;
+  }
+
+  .atlas-log-exercises > a {
+    @apply flex min-h-20 flex-col justify-center gap-3 px-4 py-3 outline-none transition-colors hover:bg-muted/60 focus-visible:ring-3 focus-visible:ring-ring/50 sm:flex-row sm:items-center sm:justify-between md:px-5;
+  }
+
+  .atlas-log-exercises strong,
+  .atlas-log-exercises span {
+    @apply block;
+  }
+
+  .atlas-log-exercises > a > div:first-child > span {
+    @apply mt-1 text-sm text-muted-foreground;
+  }
+
+  .atlas-log-exercise-meta {
+    @apply flex flex-wrap items-center gap-2 text-xs font-semibold text-muted-foreground sm:justify-end;
+  }
+
+  @keyframes atlas-register {
+    from {
+      opacity: 0.72;
+      clip-path: inset(0 0 12% 0);
+      filter: saturate(0.65);
+    }
+    to {
+      opacity: 1;
+      clip-path: inset(0);
+      filter: saturate(1);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .atlas-plan-enter,
+    .atlas-group-reveal {
+      animation: none;
+    }
+  }
 }

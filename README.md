@@ -1,6 +1,8 @@
 # Gym Track
 
-A mobile-first workout tracker built with Next.js, PostgreSQL, Drizzle, and shadcn/ui. It supports private username/password accounts, append-only body measurements with BMI trends, daily steps and activity calories, strength/bodyweight/cardio logs, workout-specific progress charts, and user-scoped workout CSV exports.
+A mobile-first workout tracker built with Next.js, PostgreSQL, Drizzle, and shadcn/ui. It supports private username/password accounts, append-only body measurements with BMI trends, daily steps and activity calories, grouped strength/bodyweight/cardio sessions, workout-specific progress charts, and user-scoped workout CSV exports.
+
+The workout planner starts with Strength or Cardio. Strength sessions can combine back, legs, shoulders, biceps, triceps, and chest. Each selected zone recalls exercises and values from its most recent prior session; the user checks completed work, edits actual results, and saves every checked exercise in one transaction. With no history, exercises are added directly under a selected zone rather than sourced from a canonical library. Existing pre-session workout rows remain readable as legacy entries.
 
 ## Stack
 

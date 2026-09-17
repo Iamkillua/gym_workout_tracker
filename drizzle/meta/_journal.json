@@ -15,6 +15,13 @@
       "when": 1784879044614,
       "tag": "0001_hot_callisto",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1789597566115,
+      "tag": "0002_reflective_starfox",
+      "breakpoints": true
     }
   ]
 }

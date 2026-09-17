@@ -24,7 +24,7 @@ export function AppShell({
     <div className="min-h-svh md:grid md:grid-cols-[15rem_minmax(0,1fr)]">
       <aside className="fixed inset-y-0 left-0 hidden w-60 border-r bg-sidebar text-sidebar-foreground md:flex md:flex-col">
         <div className="flex h-16 items-center gap-3 px-5">
-          <span className="flex size-9 items-center justify-center rounded-md bg-sidebar-primary text-sidebar-primary-foreground">
+          <span className="flex size-10 items-center justify-center border border-sidebar-primary bg-sidebar-primary text-sidebar-primary-foreground">
             <DumbbellIcon />
           </span>
           <span className="font-semibold">Gym Track</span>
@@ -47,9 +47,9 @@ export function AppShell({
       </aside>
 
       <div className="min-w-0 md:col-start-2">
-        <header className="sticky top-0 z-20 flex h-[calc(4rem+env(safe-area-inset-top))] items-center justify-between border-b bg-background/75 px-4 pt-[env(safe-area-inset-top)] backdrop-blur md:h-16 md:px-6 md:pt-0">
+        <header className="sticky top-0 z-20 flex h-[calc(4rem+env(safe-area-inset-top))] items-center justify-between border-b bg-background px-4 pt-[env(safe-area-inset-top)] md:h-16 md:px-6 md:pt-0">
           <Link href="/dashboard" className="flex items-center gap-2 md:hidden">
-            <span className="flex size-9 items-center justify-center rounded-md bg-primary text-primary-foreground">
+            <span className="flex size-10 items-center justify-center border border-primary bg-primary text-primary-foreground">
               <DumbbellIcon />
             </span>
             <span className="font-semibold">Gym Track</span>
@@ -73,12 +73,12 @@ export function AppShell({
           </div>
         </header>
 
-        <main className="mx-auto w-full max-w-6xl p-4 pb-[calc(6rem+env(safe-area-inset-bottom))] md:p-6 md:pb-10">
+        <main className="mx-auto w-full max-w-[88rem] p-4 pb-[calc(6rem+env(safe-area-inset-bottom))] md:p-6 md:pb-10">
           {children}
         </main>
       </div>
 
-      <div className="fixed inset-x-0 bottom-0 border-t bg-background/75 pb-[env(safe-area-inset-bottom)] backdrop-blur md:hidden">
+      <div className="fixed inset-x-0 bottom-0 z-20 border-t bg-background pb-[env(safe-area-inset-bottom)] md:hidden">
         <AppNavigation mobile />
       </div>
     </div>

@@ -1,7 +1,7 @@
 import { asc, eq } from "drizzle-orm"
 
 import { getDb } from "@/db"
-import { workouts } from "@/db/schema"
+import { workoutSessions, workouts } from "@/db/schema"
 import { getCurrentUser } from "@/lib/dal"
 
 export const runtime = "nodejs"
@@ -22,13 +22,22 @@ export async function GET() {
   }
 
   const workoutEntries = await getDb()
-    .select()
+    .select({
+      workout: workouts,
+      sessionCategory: workoutSessions.category,
+    })
     .from(workouts)
+    .leftJoin(workoutSessions, eq(workouts.sessionId, workoutSessions.id))
     .where(eq(workouts.userId, user.id))
     .orderBy(asc(workouts.performedOn), asc(workouts.createdAt))
 
   const headers = [
     "date",
+    "session_id",
+    "session_category",
+    "muscle_group",
+    "legacy_record",
+    "workout_type",
     "workout_name",
     "weight_kg",
     "reps",
@@ -39,8 +48,13 @@ export async function GET() {
     "distance_km",
     "average_speed_kmh",
   ]
-  const rows = workoutEntries.map((workout) => [
+  const rows = workoutEntries.map(({ workout, sessionCategory }) => [
     workout.performedOn,
+    workout.sessionId,
+    sessionCategory,
+    workout.muscleGroup,
+    workout.sessionId ? "false" : "true",
+    workout.type,
     workout.name,
     workout.weightKg,
     workout.reps,

@@ -14,7 +14,7 @@ import { cn } from "@/lib/utils"
 const items = [
   { href: "/dashboard", label: "Home", icon: HouseIcon },
   { href: "/workouts", label: "Workouts", icon: DumbbellIcon },
-  { href: "/workouts/new", label: "Add", icon: PlusIcon },
+  { href: "/workouts/new", label: "Plan", icon: PlusIcon },
   { href: "/progress", label: "Progress", icon: ChartNoAxesCombinedIcon },
 ]
 
@@ -48,7 +48,7 @@ export function AppNavigation({
             aria-current={isActive ? "page" : undefined}
             className={cn(
               "flex items-center justify-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground",
-              mobile ? "h-16 flex-col gap-1 text-xs" : "h-10 justify-start rounded-md px-3",
+              mobile ? "h-16 flex-col gap-1 text-xs" : "min-h-11 justify-start rounded-md px-3",
               isActive && "bg-sidebar-accent text-sidebar-accent-foreground"
             )}
           >
