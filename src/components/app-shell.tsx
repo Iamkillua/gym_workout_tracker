@@ -47,7 +47,7 @@ export function AppShell({
       </aside>
 
       <div className="min-w-0 md:col-start-2">
-        <header className="sticky top-0 z-20 flex h-[calc(4rem+env(safe-area-inset-top))] items-center justify-between border-b bg-background px-4 pt-[env(safe-area-inset-top)] md:h-16 md:px-6 md:pt-0">
+        <header className="sticky top-0 z-20 flex h-[calc(4rem+env(safe-area-inset-top))] items-center justify-between border-b bg-background/95 px-4 pb-2 pt-[env(safe-area-inset-top)] backdrop-blur-sm md:h-16 md:px-6 md:pb-0 md:pt-0">
           <Link href="/dashboard" className="flex items-center gap-2 md:hidden">
             <span className="flex size-10 items-center justify-center border border-primary bg-primary text-primary-foreground">
               <DumbbellIcon />
@@ -78,7 +78,7 @@ export function AppShell({
         </main>
       </div>
 
-      <div className="fixed inset-x-0 bottom-0 z-20 border-t bg-background pb-[env(safe-area-inset-bottom)] md:hidden">
+      <div className="fixed inset-x-0 bottom-0 z-20 border-t bg-background/95 pb-[env(safe-area-inset-bottom)] backdrop-blur-sm md:hidden">
         <AppNavigation mobile />
       </div>
     </div>

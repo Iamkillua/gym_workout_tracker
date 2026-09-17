@@ -154,15 +154,15 @@
 
   .atlas-stage {
     @apply relative overflow-hidden rounded-[calc(var(--radius)*2)] bg-[#132a3e] p-3 text-[#f4f3ec] ring-1 ring-[#31526a] sm:p-4 md:p-6 lg:sticky lg:top-20;
+    min-inline-size: 0;
   }
 
-  .atlas-stage::after {
-    content: "GYM TRACK / TRAINING PLATE";
-    @apply pointer-events-none absolute right-3 bottom-2 text-[0.65rem] font-semibold tracking-[0.16em] text-[#7ce2d5]/45;
+  .atlas-stage-label {
+    @apply pointer-events-none absolute inset-x-3 bottom-2 flex items-center justify-end text-[0.7rem] font-semibold tracking-[0.16em] text-[#7ce2d5]/55;
   }
 
   .atlas-stage-heading {
-    @apply mb-4 flex items-start gap-3 md:mb-6;
+    @apply relative z-10 mb-4 grid grid-cols-[auto_minmax(0,1fr)] items-start gap-3 md:mb-6;
   }
 
   .atlas-stage-heading > span {
@@ -171,10 +171,12 @@
 
   .atlas-stage-heading h2 {
     @apply text-lg leading-tight font-semibold tracking-[-0.02em] text-balance md:text-2xl;
+    margin: 0;
   }
 
   .atlas-stage-heading p {
     @apply mt-1 max-w-[60ch] text-xs leading-relaxed opacity-75 sm:text-sm;
+    margin-bottom: 0;
   }
 
   .atlas-category {
@@ -224,7 +226,7 @@
   }
 
   .atlas-zone-view-label {
-    @apply flex items-center justify-center text-[0.6rem] font-semibold tracking-[0.2em] text-[#9bb4c1] [writing-mode:vertical-rl];
+    @apply flex items-center justify-center text-[0.65rem] font-semibold tracking-[0.2em] text-[#9bb4c1] [writing-mode:vertical-rl];
   }
 
   .atlas-zone {

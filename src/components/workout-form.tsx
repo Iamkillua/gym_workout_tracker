@@ -360,6 +360,9 @@ export function WorkoutForm({
             <p>Strength zones stay together. Cardio runs on its own track.</p>
           </div>
         </div>
+        <div className="atlas-stage-label" aria-hidden="true">
+          GYM TRACK / TRAINING PLATE
+        </div>
 
         <fieldset className="atlas-category">
           <legend className="sr-only">Workout category</legend>
