@@ -1,0 +1,300 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-17T04:22:50.683+05:30",
+  "title": "Design System: Gym Track",
+  "extensions": {
+    "colorMeta": {
+      "mineral-white": {
+        "role": "neutral",
+        "displayName": "Mineral White",
+        "canonical": "oklch(0.965 0.012 96)",
+        "tonalRamp": ["oklch(0.15 0.012 96)", "oklch(0.27 0.012 96)", "oklch(0.39 0.012 96)", "oklch(0.51 0.012 96)", "oklch(0.63 0.012 96)", "oklch(0.75 0.012 96)", "oklch(0.87 0.012 96)", "oklch(0.95 0.012 96)"]
+      },
+      "atlas-paper": {
+        "role": "neutral",
+        "displayName": "Atlas Paper",
+        "canonical": "oklch(0.992 0.006 96)",
+        "tonalRamp": ["oklch(0.15 0.006 96)", "oklch(0.27 0.006 96)", "oklch(0.39 0.006 96)", "oklch(0.51 0.006 96)", "oklch(0.63 0.006 96)", "oklch(0.75 0.006 96)", "oklch(0.87 0.006 96)", "oklch(0.95 0.006 96)"]
+      },
+      "deep-ink": {
+        "role": "neutral",
+        "displayName": "Deep Ink",
+        "canonical": "oklch(0.2 0.035 248)",
+        "tonalRamp": ["oklch(0.15 0.035 248)", "oklch(0.27 0.035 248)", "oklch(0.39 0.035 248)", "oklch(0.51 0.035 248)", "oklch(0.63 0.035 248)", "oklch(0.75 0.035 248)", "oklch(0.87 0.035 248)", "oklch(0.95 0.035 248)"]
+      },
+      "oxygen-teal": {
+        "role": "primary",
+        "displayName": "Oxygen Teal",
+        "canonical": "oklch(0.56 0.12 185)",
+        "tonalRamp": ["oklch(0.15 0.12 185)", "oklch(0.27 0.12 185)", "oklch(0.39 0.12 185)", "oklch(0.51 0.12 185)", "oklch(0.63 0.12 185)", "oklch(0.75 0.12 185)", "oklch(0.87 0.12 185)", "oklch(0.95 0.12 185)"]
+      },
+      "oxygen-wash": {
+        "role": "secondary",
+        "displayName": "Oxygen Wash",
+        "canonical": "oklch(0.91 0.034 185)",
+        "tonalRamp": ["oklch(0.15 0.034 185)", "oklch(0.27 0.034 185)", "oklch(0.39 0.034 185)", "oklch(0.51 0.034 185)", "oklch(0.63 0.034 185)", "oklch(0.75 0.034 185)", "oklch(0.87 0.034 185)", "oklch(0.95 0.034 185)"]
+      },
+      "slate-copy": {
+        "role": "neutral",
+        "displayName": "Slate Copy",
+        "canonical": "oklch(0.43 0.03 245)",
+        "tonalRamp": ["oklch(0.15 0.03 245)", "oklch(0.27 0.03 245)", "oklch(0.39 0.03 245)", "oklch(0.51 0.03 245)", "oklch(0.63 0.03 245)", "oklch(0.75 0.03 245)", "oklch(0.87 0.03 245)", "oklch(0.95 0.03 245)"]
+      },
+      "coral-effort": {
+        "role": "tertiary",
+        "displayName": "Coral Effort",
+        "canonical": "oklch(0.61 0.19 32)",
+        "tonalRamp": ["oklch(0.15 0.19 32)", "oklch(0.27 0.19 32)", "oklch(0.39 0.19 32)", "oklch(0.51 0.19 32)", "oklch(0.63 0.19 32)", "oklch(0.75 0.19 32)", "oklch(0.87 0.19 32)", "oklch(0.95 0.19 32)"]
+      },
+      "contour-line": {
+        "role": "neutral",
+        "displayName": "Contour Line",
+        "canonical": "oklch(0.81 0.025 205)",
+        "tonalRamp": ["oklch(0.15 0.025 205)", "oklch(0.27 0.025 205)", "oklch(0.39 0.025 205)", "oklch(0.51 0.025 205)", "oklch(0.63 0.025 205)", "oklch(0.75 0.025 205)", "oklch(0.87 0.025 205)", "oklch(0.95 0.025 205)"]
+      },
+      "field-line": {
+        "role": "neutral",
+        "displayName": "Field Line",
+        "canonical": "oklch(0.78 0.025 205)",
+        "tonalRamp": ["oklch(0.15 0.025 205)", "oklch(0.27 0.025 205)", "oklch(0.39 0.025 205)", "oklch(0.51 0.025 205)", "oklch(0.63 0.025 205)", "oklch(0.75 0.025 205)", "oklch(0.87 0.025 205)", "oklch(0.95 0.025 205)"]
+      },
+      "stage-navy": {
+        "role": "neutral",
+        "displayName": "Stage Navy",
+        "canonical": "#132a3e",
+        "tonalRamp": ["oklch(0.15 0.05 245)", "oklch(0.27 0.05 245)", "oklch(0.39 0.05 245)", "oklch(0.51 0.05 245)", "oklch(0.63 0.05 245)", "oklch(0.75 0.05 245)", "oklch(0.87 0.05 245)", "oklch(0.95 0.05 245)"]
+      },
+      "stage-panel": {
+        "role": "neutral",
+        "displayName": "Stage Panel",
+        "canonical": "#1b3850",
+        "tonalRamp": ["oklch(0.15 0.06 240)", "oklch(0.27 0.06 240)", "oklch(0.39 0.06 240)", "oklch(0.51 0.06 240)", "oklch(0.63 0.06 240)", "oklch(0.75 0.06 240)", "oklch(0.87 0.06 240)", "oklch(0.95 0.06 240)"]
+      },
+      "stage-oxygen": {
+        "role": "primary",
+        "displayName": "Stage Oxygen",
+        "canonical": "#7ce2d5",
+        "tonalRamp": ["oklch(0.15 0.09 183)", "oklch(0.27 0.09 183)", "oklch(0.39 0.09 183)", "oklch(0.51 0.09 183)", "oklch(0.63 0.09 183)", "oklch(0.75 0.09 183)", "oklch(0.87 0.09 183)", "oklch(0.95 0.09 183)"]
+      },
+      "stage-paper": {
+        "role": "neutral",
+        "displayName": "Stage Paper",
+        "canonical": "#f4f3ec",
+        "tonalRamp": ["oklch(0.15 0.012 96)", "oklch(0.27 0.012 96)", "oklch(0.39 0.012 96)", "oklch(0.51 0.012 96)", "oklch(0.63 0.012 96)", "oklch(0.75 0.012 96)", "oklch(0.87 0.012 96)", "oklch(0.95 0.012 96)"]
+      },
+      "stage-copy": {
+        "role": "neutral",
+        "displayName": "Stage Copy",
+        "canonical": "#c6d6df",
+        "tonalRamp": ["oklch(0.15 0.025 225)", "oklch(0.27 0.025 225)", "oklch(0.39 0.025 225)", "oklch(0.51 0.025 225)", "oklch(0.63 0.025 225)", "oklch(0.75 0.025 225)", "oklch(0.87 0.025 225)", "oklch(0.95 0.025 225)"]
+      },
+      "shell-navy": {
+        "role": "neutral",
+        "displayName": "Shell Navy",
+        "canonical": "oklch(0.19 0.04 248)",
+        "tonalRamp": ["oklch(0.15 0.04 248)", "oklch(0.27 0.04 248)", "oklch(0.39 0.04 248)", "oklch(0.51 0.04 248)", "oklch(0.63 0.04 248)", "oklch(0.75 0.04 248)", "oklch(0.87 0.04 248)", "oklch(0.95 0.04 248)"]
+      },
+      "night-ink": {
+        "role": "neutral",
+        "displayName": "Night Ink",
+        "canonical": "oklch(0.17 0.035 248)",
+        "tonalRamp": ["oklch(0.15 0.035 248)", "oklch(0.27 0.035 248)", "oklch(0.39 0.035 248)", "oklch(0.51 0.035 248)", "oklch(0.63 0.035 248)", "oklch(0.75 0.035 248)", "oklch(0.87 0.035 248)", "oklch(0.95 0.035 248)"]
+      },
+      "night-panel": {
+        "role": "neutral",
+        "displayName": "Night Panel",
+        "canonical": "oklch(0.205 0.038 244)",
+        "tonalRamp": ["oklch(0.15 0.038 244)", "oklch(0.27 0.038 244)", "oklch(0.39 0.038 244)", "oklch(0.51 0.038 244)", "oklch(0.63 0.038 244)", "oklch(0.75 0.038 244)", "oklch(0.87 0.038 244)", "oklch(0.95 0.038 244)"]
+      },
+      "night-oxygen": {
+        "role": "primary",
+        "displayName": "Night Oxygen",
+        "canonical": "oklch(0.69 0.13 185)",
+        "tonalRamp": ["oklch(0.15 0.13 185)", "oklch(0.27 0.13 185)", "oklch(0.39 0.13 185)", "oklch(0.51 0.13 185)", "oklch(0.63 0.13 185)", "oklch(0.75 0.13 185)", "oklch(0.87 0.13 185)", "oklch(0.95 0.13 185)"]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Decisive dashboard and primary-workflow statements."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Major page titles and training-log identity."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Plan groups, panel titles, and section identity."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Instructions, values, and explanatory copy."
+      },
+      "label": {
+        "displayName": "Instrument Label",
+        "purpose": "Registration marks, zone labels, and compact metadata."
+      }
+    },
+    "shadows": [
+      {
+        "name": "registered-plan-lift",
+        "value": "0 12px 30px -22px color-mix(in oklab, var(--foreground) 45%, transparent)",
+        "purpose": "Separates the editable plan from the application canvas."
+      },
+      {
+        "name": "lead-plate-lift",
+        "value": "0 18px 42px -30px rgb(7 24 39 / 0.8)",
+        "purpose": "Anchors the dashboard lead plate."
+      },
+      {
+        "name": "save-dock-separation",
+        "value": "0 -8px 24px -18px color-mix(in oklab, var(--foreground) 55%, transparent)",
+        "purpose": "Separates the sticky save action from scrolling plan content."
+      }
+    ],
+    "motion": [
+      {
+        "name": "atlas-register",
+        "value": "420ms cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Registers a selected zone or plan group with a restrained reveal; disabled for reduced motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "metric-two-column",
+        "value": "390px"
+      },
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "xl",
+        "value": "1280px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The single high-confidence action used to plan or save a workout.",
+      "html": "<button class=\"ds-btn-primary\">Save 4 exercises</button>",
+      "css": ".ds-btn-primary { display:inline-flex; height:2.75rem; align-items:center; justify-content:center; gap:.5rem; padding:0 .875rem; border:1px solid transparent; border-radius:calc(var(--radius) * .8); background:var(--primary); color:var(--primary-foreground); font:600 .875rem/1 var(--font-sans),Arial,sans-serif; transition:background-color 150ms,box-shadow 150ms,border-color 150ms,transform 150ms; } .ds-btn-primary:hover { background:color-mix(in oklch,var(--primary) 80%,transparent); } .ds-btn-primary:focus-visible { outline:none; border-color:var(--ring); box-shadow:0 0 0 3px color-mix(in oklch,var(--ring) 50%,transparent); } .ds-btn-primary:active { transform:translateY(1px); }"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "A quiet surface action for adding, reviewing, or repeating work.",
+      "html": "<button class=\"ds-btn-outline\">Add exercise</button>",
+      "css": ".ds-btn-outline { display:inline-flex; height:2.75rem; align-items:center; justify-content:center; gap:.5rem; padding:0 .875rem; border:1px solid var(--border); border-radius:calc(var(--radius) * .8); background:var(--background); color:var(--foreground); font:600 .875rem/1 var(--font-sans),Arial,sans-serif; transition:background-color 150ms,box-shadow 150ms,border-color 150ms,transform 150ms; } .ds-btn-outline:hover { background:var(--muted); } .ds-btn-outline:focus-visible { outline:none; border-color:var(--ring); box-shadow:0 0 0 3px color-mix(in oklch,var(--ring) 50%,transparent); } .ds-btn-outline:active { transform:translateY(1px); }"
+    },
+    {
+      "name": "Workout Field",
+      "kind": "input",
+      "refersTo": "field-input",
+      "description": "A labeled, high-target field for exercise names, dates, and actual values.",
+      "html": "<label class=\"ds-field\"><span>Weight (kg)</span><input class=\"ds-field-input\" type=\"number\" value=\"72.5\"></label>",
+      "css": ".ds-field { display:flex; min-width:0; flex-direction:column; gap:.375rem; color:var(--muted-foreground); font:600 .75rem/1.25 var(--font-sans),Arial,sans-serif; } .ds-field-input { box-sizing:border-box; width:100%; height:2.75rem; padding:.5rem .75rem; border:1px solid var(--input); border-radius:calc(var(--radius) * .8); background:var(--background); color:var(--foreground); font:400 1rem/1.5 var(--font-sans),Arial,sans-serif; transition:border-color 150ms,box-shadow 150ms; } .ds-field-input:focus-visible { outline:none; border-color:var(--ring); box-shadow:0 0 0 3px color-mix(in oklch,var(--ring) 50%,transparent); } .ds-field-input:invalid { border-color:var(--destructive); box-shadow:0 0 0 3px color-mix(in oklch,var(--destructive) 20%,transparent); }"
+    },
+    {
+      "name": "Anatomy Zone",
+      "kind": "chip",
+      "refersTo": "atlas-zone-selected",
+      "description": "The clipped, high-contrast muscle-zone control that registers directly into the plan.",
+      "html": "<button class=\"ds-atlas-zone\" aria-pressed=\"true\"><span>Chest</span><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"m5 12 4 4L19 6\"></path></svg></button>",
+      "css": ".ds-atlas-zone { display:flex; min-height:3rem; align-items:center; justify-content:space-between; gap:.5rem; padding:0 .75rem; border:1px solid #67879a; background:#18344a; color:#f4f3ec; clip-path:polygon(4% 0,96% 0,100% 50%,96% 100%,4% 100%,0 50%); font:600 .75rem/1.25 var(--font-sans),Arial,sans-serif; letter-spacing:.08em; text-transform:uppercase; transition:background-color 150ms,border-color 150ms,color 150ms; } .ds-atlas-zone[aria-pressed=\"true\"] { border-color:#7ce2d5; background:#7ce2d5; color:#10283b; } .ds-atlas-zone:hover { border-color:#7ce2d5; } .ds-atlas-zone:focus-visible { outline:none; box-shadow:0 0 0 3px rgb(124 226 213 / .6); } .ds-atlas-zone svg { width:1rem; height:1rem; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }"
+    },
+    {
+      "name": "Surface Card",
+      "kind": "card",
+      "refersTo": "surface-card",
+      "description": "The reusable paper surface for supporting forms and measurement content.",
+      "html": "<section class=\"ds-card\"><p class=\"ds-card-label\">Today’s movement</p><strong>Record the work around your training.</strong></section>",
+      "css": ".ds-card { display:flex; flex-direction:column; gap:.5rem; padding:1rem; border-radius:calc(var(--radius) * 1.4); background:var(--card); color:var(--card-foreground); box-shadow:0 0 0 1px color-mix(in oklch,var(--foreground) 10%,transparent); font-family:var(--font-sans),Arial,sans-serif; } .ds-card-label { margin:0; color:var(--muted-foreground); font-size:.875rem; } .ds-card strong { font-size:1rem; font-weight:500; } .ds-card:focus-within { box-shadow:0 0 0 3px color-mix(in oklch,var(--ring) 50%,transparent); }"
+    },
+    {
+      "name": "Primary Navigation Item",
+      "kind": "nav",
+      "refersTo": "navigation-active",
+      "description": "The icon-label destination used in the desktop rail and mobile bottom bar.",
+      "html": "<a class=\"ds-nav-item\" aria-current=\"page\" href=\"#\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M3 10.5 12 3l9 7.5\"></path><path d=\"M5 9.5V21h14V9.5\"></path></svg><span>Home</span></a>",
+      "css": ".ds-nav-item { display:flex; min-height:2.75rem; align-items:center; justify-content:flex-start; gap:.5rem; padding:0 .75rem; border-radius:calc(var(--radius) * .8); color:var(--muted-foreground); font:500 .875rem/1 var(--font-sans),Arial,sans-serif; text-decoration:none; transition:background-color 150ms,color 150ms; } .ds-nav-item[aria-current=\"page\"] { background:var(--sidebar-accent); color:var(--sidebar-accent-foreground); } .ds-nav-item:hover { color:var(--foreground); } .ds-nav-item:focus-visible { outline:none; box-shadow:0 0 0 3px color-mix(in oklch,var(--sidebar-ring) 50%,transparent); } .ds-nav-item svg { width:1rem; height:1rem; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }"
+    },
+    {
+      "name": "Training Log Session",
+      "kind": "custom",
+      "refersTo": "training-log-session",
+      "description": "One recorded workout session presented as a navy-headed history sheet.",
+      "html": "<article class=\"ds-log-session\"><header><time>Thursday, Sep 17, 2026</time><span>Chest + Triceps</span></header><a href=\"#\"><strong>Bench press</strong><small>72.5 kg × 8 reps × 3 sets</small></a></article>",
+      "css": ".ds-log-session { overflow:hidden; border:1px solid var(--border); background:var(--card); color:var(--card-foreground); font-family:var(--font-sans),Arial,sans-serif; } .ds-log-session header { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:.75rem; padding:1rem; background:#132a3e; color:#f4f3ec; } .ds-log-session time { font-size:1.125rem; font-weight:600; } .ds-log-session header span { color:#c6d6df; font-size:.75rem; font-weight:600; } .ds-log-session a { display:flex; min-height:5rem; flex-direction:column; justify-content:center; gap:.25rem; padding:.75rem 1rem; color:inherit; text-decoration:none; transition:background-color 150ms; } .ds-log-session a:hover { background:var(--muted); } .ds-log-session a:focus-visible { outline:none; box-shadow:inset 0 0 0 3px color-mix(in oklch,var(--ring) 50%,transparent); } .ds-log-session small { color:var(--muted-foreground); font-size:.875rem; }"
+    },
+    {
+      "name": "Sticky Save Dock",
+      "kind": "custom",
+      "refersTo": "button-primary",
+      "description": "The thumb-reachable session boundary that pairs the date with the single save action.",
+      "html": "<div class=\"ds-save-dock\"><label><span>Session date</span><input type=\"date\" value=\"2026-09-17\"></label><button>Save 4 exercises</button></div>",
+      "css": ".ds-save-dock { display:grid; grid-template-columns:minmax(8rem,.72fr) minmax(0,1.28fr); align-items:end; gap:.75rem; padding:.75rem; border:1px solid var(--border); background:var(--card); box-shadow:0 -8px 24px -18px color-mix(in oklab,var(--foreground) 55%,transparent); font-family:var(--font-sans),Arial,sans-serif; } .ds-save-dock label { display:flex; min-width:0; flex-direction:column; gap:.375rem; color:var(--muted-foreground); font-size:.75rem; font-weight:600; } .ds-save-dock input,.ds-save-dock button { box-sizing:border-box; height:3rem; } .ds-save-dock input { min-width:0; padding:.5rem .75rem; border:1px solid var(--input); border-radius:calc(var(--radius) * .8); background:var(--background); color:var(--foreground); } .ds-save-dock button { padding:0 1rem; border:1px solid transparent; border-radius:calc(var(--radius) * .8); background:var(--primary); color:var(--primary-foreground); font-weight:600; } .ds-save-dock input:focus-visible,.ds-save-dock button:focus-visible { outline:none; border-color:var(--ring); box-shadow:0 0 0 3px color-mix(in oklch,var(--ring) 50%,transparent); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Anatomy Training Atlas",
+    "overview": "Gym Track treats the body as the plan. Its visual world combines deep clinical ink, mineral-white working surfaces, precise anatomy-plate contours, and sparse dry-erase coaching marks. It is an operational training instrument rather than an interchangeable KPI-card dashboard: the interface helps a gym-goer select zones, recognize recent work, record actuals, and preserve one trustworthy session.\n\nThe system is dense where the user edits a workout and calm everywhere else. Large neutral fields keep attention on the current task; oxygen teal makes active and recovered states unmistakable; coral appears only when effort, error, or attention requires it. The finished surface sits over a registered history layer, so recent routines feel recalled rather than generated.",
+    "keyCharacteristics": [
+      "Deep ink and navy establish a focused, clinical training field.",
+      "Mineral-white surfaces keep forms legible under gym-floor conditions.",
+      "Oxygen teal identifies selection, completion, recovery, and primary action.",
+      "Laminated plates, clipped zone contours, fine rules, and registration labels carry the atlas metaphor.",
+      "Mobile composition keeps selection compact, the plan immediate, and the save action thumb-reachable."
+    ],
+    "rules": [
+      {
+        "name": "The Oxygen and Effort Rule",
+        "body": "Use oxygen teal for active, recovered, complete, and primary states; reserve coral for errors, destructive actions, or genuine attention.",
+        "section": "colors"
+      },
+      {
+        "name": "The Mineral Field Rule",
+        "body": "Let mineral-white and navy fields dominate the screen. Accent color is a precise signal, never ambient decoration.",
+        "section": "colors"
+      },
+      {
+        "name": "The Instrument Label Rule",
+        "body": "Use compact uppercase tracking for registration and metadata, never for paragraphs, exercise names, or primary actions.",
+        "section": "typography"
+      },
+      {
+        "name": "The Laminated, Not Floating Rule",
+        "body": "Use borders and tonal layering first; apply a shadow only when a major plate or sticky action must separate from adjacent content.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do make the body-zone choice the entry point to workout planning.",
+      "Do use oxygen teal to connect selection, completion, focus, and the primary save action.",
+      "Do keep recent-history cues attached to exercises and sessions so recalled values remain recognizable.",
+      "Do preserve 44–48px controls, explicit labels, visible focus, linked errors, and reduced-motion behavior.",
+      "Do keep the mobile save action above the bottom navigation and within thumb reach.",
+      "Do use dry, precise rules, registration labels, and clipped contours to carry the atlas metaphor."
+    ],
+    "donts": [
+      "Don't replace the workflow with an interchangeable dashboard of KPI cards.",
+      "Don't use coral as a general brand accent or decorative highlight.",
+      "Don't invent exercises, anatomy imagery, health outcomes, or performance claims.",
+      "Don't let shadows, gradients, or soft floating cards replace the laminated plate structure.",
+      "Don't separate checked exercises into unrelated saves; the visible unit is one trustworthy dated session.",
+      "Don't turn the compact instrument-label style into dense uppercase body copy."
+    ]
+  }
+}

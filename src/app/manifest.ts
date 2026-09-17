@@ -35,8 +35,8 @@ export default function manifest(): MetadataRoute.Manifest {
     ],
     shortcuts: [
       {
-        name: "Add workout",
-        short_name: "Add workout",
+        name: "Plan workout",
+        short_name: "Plan workout",
         url: "/workouts/new",
         icons: [{ src: "/icons/icon-192.svg", sizes: "192x192" }],
       },

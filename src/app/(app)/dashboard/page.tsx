@@ -1,9 +1,9 @@
-import { and, count, desc, eq, gte } from "drizzle-orm"
+import { and, eq } from "drizzle-orm"
 import {
   ArrowRightIcon,
   CheckCircle2Icon,
   DumbbellIcon,
-  PlusIcon,
+  Repeat2Icon,
 } from "lucide-react"
 import Link from "next/link"
 
@@ -13,28 +13,22 @@ import { Badge } from "@/components/ui/badge"
 import { buttonVariants } from "@/components/ui/button"
 import {
   Card,
-  CardAction,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import {
-  Empty,
-  EmptyContent,
-  EmptyDescription,
-  EmptyHeader,
-  EmptyMedia,
-  EmptyTitle,
-} from "@/components/ui/empty"
 import { Separator } from "@/components/ui/separator"
 import { getDb } from "@/db"
-import { dailyActivityEntries, workouts } from "@/db/schema"
+import { dailyActivityEntries } from "@/db/schema"
 import { getBmiLabel } from "@/lib/bmi"
 import { requireUser } from "@/lib/dal"
 import { getProfileHistory } from "@/lib/profile"
 import { cn } from "@/lib/utils"
+import {
+  muscleGroupLabels,
+} from "@/lib/workout-planning"
+import { getWorkoutTimeline } from "@/lib/workout-sessions"
 
 export const metadata = { title: "Dashboard" }
 
@@ -51,27 +45,11 @@ export default async function DashboardPage({
   searchParams: Promise<{ activityUpdated?: string; activityError?: string }>
 }) {
   const user = await requireUser()
-  const profileHistory = await getProfileHistory(user.id)
-  const latest = profileHistory.at(-1)!
   const database = getDb()
   const today = new Date().toISOString().slice(0, 10)
-  const { activityUpdated, activityError } = await searchParams
-  const [[weekly], recent, [todayActivity]] = await Promise.all([
-    database
-      .select({ total: count() })
-      .from(workouts)
-      .where(
-        and(
-          eq(workouts.userId, user.id),
-          gte(workouts.performedOn, startOfWeekDate())
-        )
-      ),
-    database
-      .select()
-      .from(workouts)
-      .where(eq(workouts.userId, user.id))
-      .orderBy(desc(workouts.performedOn), desc(workouts.createdAt))
-      .limit(4),
+  const [profileHistory, timeline, [todayActivity], params] = await Promise.all([
+    getProfileHistory(user.id),
+    getWorkoutTimeline(user.id),
     database
       .select()
       .from(dailyActivityEntries)
@@ -82,178 +60,162 @@ export default async function DashboardPage({
         )
       )
       .limit(1),
+    searchParams,
   ])
+  const latest = profileHistory.at(-1)!
+  const weekStart = startOfWeekDate()
+  const weeklySessions = timeline.filter(
+    (session) => session.performedOn >= weekStart
+  ).length
+  const recent = timeline.slice(0, 3)
 
   return (
     <div className="flex flex-col gap-6">
-      <header className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-        <div>
-          <p className="text-sm font-medium text-primary">
+      <section className="atlas-dashboard-lead">
+        <div className="atlas-dashboard-copy">
+          <p>
             {new Intl.DateTimeFormat("en", {
               weekday: "long",
               month: "long",
               day: "numeric",
             }).format(new Date())}
           </p>
-          <h1 className="text-3xl font-semibold">Ready, {user.username}?</h1>
-          <p className="mt-1 text-muted-foreground">
-            Log the work. Let the trend tell the story.
-          </p>
+          <h1>Where are you training today, {user.username}?</h1>
+          <div className="atlas-dashboard-status">
+            <span>{weeklySessions} sessions this week</span>
+            <span>{latest.weightKg.toFixed(1)} kg latest weight</span>
+          </div>
+          <Link
+            href="/workouts/new"
+            className={cn(buttonVariants({ size: "lg" }), "mt-6")}
+          >
+            <DumbbellIcon data-icon="inline-start" />
+            Plan today&apos;s workout
+          </Link>
         </div>
-        <Link
-          href="/workouts/new"
-          className={buttonVariants({ size: "lg" })}
-        >
-          <PlusIcon data-icon="inline-start" />
-          Add workout
-        </Link>
-      </header>
 
-      {activityUpdated ? (
+        <div className="atlas-repeat-panel">
+          <div>
+            <span>REGISTERED HISTORY</span>
+            <h2>Repeat a recent session</h2>
+          </div>
+          {recent.length ? (
+            <div className="divide-y divide-[#547085]">
+              {recent.map((session) => {
+                const groups = Array.from(
+                  new Set(
+                    session.exercises
+                      .map((exercise) => exercise.muscleGroup)
+                      .filter((group) => group !== null)
+                  )
+                )
+                return (
+                  <div key={session.id} className="atlas-repeat-row">
+                    <div>
+                      <p>
+                        {groups.length
+                          ? groups
+                              .map((group) => muscleGroupLabels[group!])
+                              .join(" + ")
+                          : session.exercises[0]?.name}
+                      </p>
+                      <span>
+                        {new Intl.DateTimeFormat("en", {
+                          month: "short",
+                          day: "numeric",
+                          timeZone: "UTC",
+                        }).format(
+                          new Date(`${session.performedOn}T12:00:00Z`)
+                        )}{" "}
+                        · {session.exercises.length}{" "}
+                        {session.exercises.length === 1 ? "exercise" : "exercises"}
+                      </span>
+                    </div>
+                    {session.legacy ? (
+                      <Badge variant="outline">Legacy</Badge>
+                    ) : (
+                      <Link
+                        href={`/workouts/new?repeat=${session.id}`}
+                        className={buttonVariants({
+                          variant: "secondary",
+                          size: "sm",
+                        })}
+                      >
+                        <Repeat2Icon data-icon="inline-start" />
+                        Repeat
+                      </Link>
+                    )}
+                  </div>
+                )
+              })}
+            </div>
+          ) : (
+            <p className="text-sm text-[#c6d6df]">
+              Your first saved session becomes a repeatable plan.
+            </p>
+          )}
+        </div>
+      </section>
+
+      {params.activityUpdated ? (
         <Alert>
           <CheckCircle2Icon />
           <AlertTitle>Today&apos;s activity updated</AlertTitle>
           <AlertDescription>Your latest steps and calories are saved.</AlertDescription>
         </Alert>
       ) : null}
-      {activityError ? (
+      {params.activityError ? (
         <Alert variant="destructive">
           <AlertTitle>Could not update activity</AlertTitle>
           <AlertDescription>Enter valid steps and activity calories.</AlertDescription>
         </Alert>
       ) : null}
 
-      <section className="grid grid-cols-2 gap-3 lg:grid-cols-4">
-        <Card size="sm">
-          <CardHeader>
-            <CardDescription>Weight</CardDescription>
-            <CardTitle>{latest.weightKg.toFixed(1)} kg</CardTitle>
-          </CardHeader>
-        </Card>
-        <Card size="sm">
-          <CardHeader>
-            <CardDescription>BMI</CardDescription>
-            <CardTitle>{latest.bmi.toFixed(1)}</CardTitle>
-          </CardHeader>
-        </Card>
-        <Card size="sm">
-          <CardHeader>
-            <CardDescription>This week</CardDescription>
-            <CardTitle>{weekly.total} sessions</CardTitle>
-          </CardHeader>
-        </Card>
-        <Card size="sm">
-          <CardHeader>
-            <CardDescription>Measurements</CardDescription>
-            <CardTitle>{profileHistory.length} logged</CardTitle>
-          </CardHeader>
-        </Card>
-      </section>
-
-      <Card>
-        <CardHeader>
-          <CardTitle>Today&apos;s activity</CardTitle>
-          <CardDescription>
-            Track your daily walking and activity calories.
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <DailyActivityForm
-            steps={todayActivity?.steps ?? 0}
-            activityCalories={todayActivity?.activityCalories ?? 0}
-          />
-        </CardContent>
-      </Card>
-
-      <section className="grid gap-6 lg:grid-cols-[minmax(0,1.3fr)_minmax(19rem,0.7fr)]">
+      <section className="grid items-start gap-6 lg:grid-cols-[minmax(0,1.2fr)_minmax(18rem,0.8fr)]">
         <Card>
           <CardHeader>
-            <CardTitle>Recent training</CardTitle>
-            <CardDescription>Your latest daily workout entries.</CardDescription>
-            <CardAction>
-              <Link
-                href="/workouts"
-                className={cn(buttonVariants({ variant: "ghost", size: "sm" }))}
-              >
-                View all
-                <ArrowRightIcon data-icon="inline-end" />
-              </Link>
-            </CardAction>
+            <CardTitle>Today&apos;s movement</CardTitle>
+            <CardDescription>
+              Daily steps and activity calories stay separate from training.
+            </CardDescription>
           </CardHeader>
           <CardContent>
-            {recent.length ? (
-              <div className="flex flex-col">
-                {recent.map((workout, index) => (
-                  <div key={workout.id}>
-                    {index ? <Separator /> : null}
-                    <Link
-                      href={`/workouts/history/${encodeURIComponent(workout.name)}?type=${workout.type}`}
-                      className="flex min-h-16 items-center justify-between gap-3 py-3"
-                    >
-                      <div className="min-w-0">
-                        <p className="truncate font-medium">{workout.name}</p>
-                        <p className="text-sm text-muted-foreground">
-                          {new Intl.DateTimeFormat("en", {
-                            dateStyle: "medium",
-                            timeZone: "UTC",
-                          }).format(new Date(`${workout.performedOn}T12:00:00Z`))}
-                        </p>
-                      </div>
-                      <Badge variant="secondary">
-                        {workout.type.toLowerCase()}
-                      </Badge>
-                    </Link>
-                  </div>
-                ))}
-              </div>
-            ) : (
-              <Empty>
-                <EmptyHeader>
-                  <EmptyMedia variant="icon">
-                    <DumbbellIcon />
-                  </EmptyMedia>
-                  <EmptyTitle>No workouts yet</EmptyTitle>
-                  <EmptyDescription>
-                    Your first session will appear here.
-                  </EmptyDescription>
-                </EmptyHeader>
-                <EmptyContent>
-                  <Link href="/workouts/new" className={buttonVariants()}>
-                    Add first workout
-                  </Link>
-                </EmptyContent>
-              </Empty>
-            )}
+            <DailyActivityForm
+              steps={todayActivity?.steps ?? 0}
+              activityCalories={todayActivity?.activityCalories ?? 0}
+            />
           </CardContent>
         </Card>
 
-        <Card>
-          <CardHeader>
-            <CardTitle>Current snapshot</CardTitle>
-            <CardDescription>Based on your latest measurement.</CardDescription>
-          </CardHeader>
-          <CardContent className="flex flex-col gap-4">
+        <section className="atlas-measurement-strip" aria-labelledby="body-status">
+          <div>
+            <h2 id="body-status">Body history</h2>
+            <p>Latest of {profileHistory.length} measurements</p>
+          </div>
+          <dl>
             <div>
-              <p className="text-sm text-muted-foreground">BMI reference</p>
-              <p className="mt-1 font-medium">{getBmiLabel(latest.bmi)}</p>
+              <dt>Weight</dt>
+              <dd>{latest.weightKg.toFixed(1)} kg</dd>
             </div>
             <Separator />
             <div>
-              <p className="text-sm text-muted-foreground">Height</p>
-              <p className="mt-1 font-medium">{latest.heightCm.toFixed(1)} cm</p>
+              <dt>BMI reference</dt>
+              <dd>{getBmiLabel(latest.bmi)}</dd>
             </div>
             <Separator />
             <div>
-              <p className="text-sm text-muted-foreground">Age</p>
-              <p className="mt-1 font-medium">{latest.age} years</p>
+              <dt>Height</dt>
+              <dd>{latest.heightCm.toFixed(1)} cm</dd>
             </div>
-          </CardContent>
-          <CardFooter>
-            <Link href="/progress" className={buttonVariants({ variant: "outline" })}>
-              Update measurements
-            </Link>
-          </CardFooter>
-        </Card>
+          </dl>
+          <Link
+            href="/progress"
+            className={buttonVariants({ variant: "outline" })}
+          >
+            Review measurements
+            <ArrowRightIcon data-icon="inline-end" />
+          </Link>
+        </section>
       </section>
     </div>
   )

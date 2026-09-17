@@ -20,6 +20,21 @@ export const workoutType = pgEnum("workout_type", [
   "CYCLING",
 ])
 
+export const workoutSessionCategory = pgEnum("workout_session_category", [
+  "STRENGTH",
+  "CARDIO",
+])
+
+export const muscleGroup = pgEnum("muscle_group", [
+  "BACK",
+  "LEGS",
+  "SHOULDERS",
+  "BICEPS",
+  "TRICEPS",
+  "CHEST",
+  "CARDIO",
+])
+
 export const users = pgTable(
   "users",
   {
@@ -80,6 +95,29 @@ export const dailyActivityEntries = pgTable(
   ]
 )
 
+export const workoutSessions = pgTable(
+  "workout_sessions",
+  {
+    id: uuid("id").defaultRandom().primaryKey(),
+    userId: uuid("user_id")
+      .notNull()
+      .references(() => users.id, { onDelete: "cascade" }),
+    category: workoutSessionCategory("category").notNull(),
+    performedOn: date("performed_on")
+      .default(sql`CURRENT_DATE`)
+      .notNull(),
+    createdAt: timestamp("created_at", { withTimezone: true })
+      .defaultNow()
+      .notNull(),
+  },
+  (table) => [
+    index("workout_sessions_user_date_idx").on(
+      table.userId,
+      table.performedOn
+    ),
+  ]
+)
+
 export const workouts = pgTable(
   "workouts",
   {
@@ -87,6 +125,10 @@ export const workouts = pgTable(
     userId: uuid("user_id")
       .notNull()
       .references(() => users.id, { onDelete: "cascade" }),
+    sessionId: uuid("session_id").references(() => workoutSessions.id, {
+      onDelete: "cascade",
+    }),
+    muscleGroup: muscleGroup("muscle_group"),
     type: workoutType("type").notNull(),
     name: varchar("name", { length: 80 }).notNull(),
     performedOn: date("performed_on")
@@ -106,6 +148,8 @@ export const workouts = pgTable(
   },
   (table) => [
     index("workouts_user_date_idx").on(table.userId, table.performedOn),
+    index("workouts_session_idx").on(table.sessionId),
+    index("workouts_user_group_idx").on(table.userId, table.muscleGroup),
     index("workouts_user_name_type_idx").on(
       table.userId,
       table.name,
@@ -115,6 +159,10 @@ export const workouts = pgTable(
 )
 
 export type WorkoutType = (typeof workoutType.enumValues)[number]
+export type WorkoutSessionCategory =
+  (typeof workoutSessionCategory.enumValues)[number]
+export type MuscleGroup = (typeof muscleGroup.enumValues)[number]
 export type Workout = typeof workouts.$inferSelect
+export type WorkoutSession = typeof workoutSessions.$inferSelect
 export type ProfileEntry = typeof profileEntries.$inferSelect
 export type DailyActivityEntry = typeof dailyActivityEntries.$inferSelect

@@ -24,6 +24,7 @@ import {
 import { getDb } from "@/db"
 import { workouts, workoutType, type WorkoutType } from "@/db/schema"
 import { requireUser } from "@/lib/dal"
+import { muscleGroupLabels } from "@/lib/workout-planning"
 import { getWorkoutVolume, workoutTypeLabels } from "@/lib/workouts"
 
 function isWorkoutType(value: string | undefined): value is WorkoutType {
@@ -88,6 +89,13 @@ export default async function WorkoutHistoryPage({
   }))
   const bestPrimary = Math.max(...chartData.map((point) => point.primary))
   const bestSecondary = Math.max(...chartData.map((point) => point.secondary))
+  const muscleGroups = Array.from(
+    new Set(
+      entries
+        .map((entry) => entry.muscleGroup)
+        .filter((group) => group !== null)
+    )
+  )
 
   return (
     <div className="flex flex-col gap-6">
@@ -102,9 +110,15 @@ export default async function WorkoutHistoryPage({
         <div className="mt-3 flex flex-wrap items-center gap-3">
           <h1 className="text-3xl font-semibold">{name}</h1>
           <Badge variant="secondary">{workoutTypeLabels[type]}</Badge>
+          {muscleGroups.map((group) => (
+            <Badge key={group} variant="outline">
+              {muscleGroupLabels[group!]}
+            </Badge>
+          ))}
         </div>
         <p className="mt-1 text-muted-foreground">
-          Date-by-date values for {entries.length} {entries.length === 1 ? "session" : "sessions"}.
+          Date-by-date values across {entries.length}{" "}
+          {entries.length === 1 ? "recorded exercise" : "recorded exercises"}.
         </p>
       </header>
 
